@@ -1,0 +1,418 @@
+[26, 19:01:56] DROP DATABASE `outdoor_pollution`: Running...
+[26, 19:01:56] DROP DATABASE `outdoor_pollution`: 6 row(s) affected
+[27, 19:02:05] CREATE DATABASE outdoor_pollution: Running...
+[27, 19:02:05] CREATE DATABASE outdoor_pollution: 1 row(s) affected
+[28, 19:02:05] use outdoor_pollution: Running...
+[28, 19:02:05] use outdoor_pollution: 0 row(s) affected
+[29, 19:02:05] SET GLOBAL local_infile = 'ON': Running...
+[29, 19:02:05] SET GLOBAL local_infile = 'ON': 0 row(s) affected
+[30, 19:02:05] create table COUNTRIES(
+	country_id INT NOT NULL AUTO_INCREMENT,
+    country_name varchar(255),
+    country_code varchar(10),
+    PRIMARY KEY(country_id)
+): Running...
+[30, 19:02:05] create table COUNTRIES(
+	country_id INT NOT NULL AUTO_INCREMENT,
+    country_name varchar(255),
+    country_code varchar(10),
+    PRIMARY KEY(country_id)
+): 0 row(s) affected
+[31, 19:02:05] create table PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION(
+	country_id INT,
+    year INT NOT NULL,
+    percentage FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): Running...
+[31, 19:02:05] create table PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION(
+	country_id INT,
+    year INT NOT NULL,
+    percentage FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): 0 row(s) affected
+[32, 19:02:05] create table concentrations_of_air_pollution(
+	country_id INT,
+    year INT NOT NULL,
+    concentration FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): Running...
+[32, 19:02:05] create table concentrations_of_air_pollution(
+	country_id INT,
+    year INT NOT NULL,
+    concentration FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): 0 row(s) affected
+[33, 19:02:05] create table pollution_rates_age(
+	country_id int,
+	year int not null,
+	PRIMARY KEY(country_id, year),
+	FOREIGN KEY (country_id) REFERENCES countries(country_id),
+	death_under_5 float,
+	death_5_14 float,
+	death_15_49 float,
+	death_50_69 float,
+	death_over_70 float
+): Running...
+[33, 19:02:05] create table pollution_rates_age(
+	country_id int,
+	year int not null,
+	PRIMARY KEY(country_id, year),
+	FOREIGN KEY (country_id) REFERENCES countries(country_id),
+	death_under_5 float,
+	death_5_14 float,
+	death_15_49 float,
+	death_50_69 float,
+	death_over_70 float
+): 0 row(s) affected
+[34, 19:02:05] create table Death_rates_from_ozone_and_particulate_matter_polution(
+	country_id INT,
+    year INT NOT NULL,
+    MatterPollution FLOAT,
+    OzonePollution FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): Running...
+[34, 19:02:05] create table Death_rates_from_ozone_and_particulate_matter_polution(
+	country_id INT,
+    year INT NOT NULL,
+    MatterPollution FLOAT,
+    OzonePollution FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): 0 row(s) affected
+[35, 19:02:05] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/COUNTRIES.csv'
+   INTO TABLE countries
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (country_name, country_code): Running...
+[35, 19:02:05] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/COUNTRIES.csv'
+   INTO TABLE countries
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (country_name, country_code): 242 row(s) affected
+Records: 242  Deleted: 0  Skipped: 0  Warnings: 0
+[36, 19:02:05] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION.csv'
+   INTO TABLE PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, Percentage)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): Running...
+[36, 19:02:06] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION.csv'
+   INTO TABLE PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, Percentage)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): 6840 row(s) affected
+Records: 6840  Deleted: 0  Skipped: 0  Warnings: 0
+[37, 19:02:06] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/outdoor_pollution_rates_by_age.csv'
+   INTO TABLE pollution_rates_age
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, death_under_5, death_5_14, death_15_49, death_50_69, death_over_70)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): Running...
+[37, 19:02:07] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/outdoor_pollution_rates_by_age.csv'
+   INTO TABLE pollution_rates_age
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, death_under_5, death_5_14, death_15_49, death_50_69, death_over_70)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): 6840 row(s) affected
+Records: 6840  Deleted: 0  Skipped: 0  Warnings: 0
+[38, 19:02:07] LOAD DATA LOCAL INFILE'C:/Users/Kemal/Desktop/Death_rates_from_ozone_and_particulate_matter_polution.csv'
+   INTO TABLE Death_rates_from_ozone_and_particulate_matter_polution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, MatterPollution, OzonePollution)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): Running...
+[38, 19:02:08] LOAD DATA LOCAL INFILE'C:/Users/Kemal/Desktop/Death_rates_from_ozone_and_particulate_matter_polution.csv'
+   INTO TABLE Death_rates_from_ozone_and_particulate_matter_polution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, MatterPollution, OzonePollution)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): 6840 row(s) affected
+Records: 6840  Deleted: 0  Skipped: 0  Warnings: 0
+[39, 19:02:08] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/concentrations_of_air_pollution.csv'
+   INTO TABLE concentrations_of_air_pollution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, concentration)
+   SET country_id = ((SELECT countries.country_id FROM countries where @Entity = country_name)): Running...
+[39, 19:02:08] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/concentrations_of_air_pollution.csv'
+   INTO TABLE concentrations_of_air_pollution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, concentration)
+   SET country_id = ((SELECT countries.country_id FROM countries where @Entity = country_name)): 2508 row(s) affected
+Records: 2508  Deleted: 0  Skipped: 0  Warnings: 0
+[40, 19:02:08] Create Table causes_of_death(
+	Country_name Varchar(100),
+	Years INT,
+	Outdoor_air_pollution INT,
+	High_blood_pressure INT,
+	Alcohol_use INT,
+	Smoking INT,
+	Drug_use INT
+): Running...
+[40, 19:02:08] Create Table causes_of_death(
+	Country_name Varchar(100),
+	Years INT,
+	Outdoor_air_pollution INT,
+	High_blood_pressure INT,
+	Alcohol_use INT,
+	Smoking INT,
+	Drug_use INT
+): 0 row(s) affected
+[41, 19:02:08] ALTER TABLE causes_of_death
+ADD COLUMN country_id INT: Running...
+[41, 19:02:08] ALTER TABLE causes_of_death
+ADD COLUMN country_id INT: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[42, 19:02:08] ALTER TABLE causes_of_death
+ADD CONSTRAINT fk_country_id
+FOREIGN KEY (country_id) REFERENCES countries(country_id): Running...
+[42, 19:02:08] ALTER TABLE causes_of_death
+ADD CONSTRAINT fk_country_id
+FOREIGN KEY (country_id) REFERENCES countries(country_id): 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[43, 19:02:20] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[43, 19:02:20] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[44, 19:02:20] SHOW DATABASES: Executing 
+[44, 19:02:20] SHOW DATABASES: OK
+[45, 19:02:21] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[45, 19:02:21] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[46, 19:02:21] SHOW COLUMNS FROM `outdoor_pollution`.`causes_of_death`: Executing 
+[46, 19:02:21] SHOW COLUMNS FROM `outdoor_pollution`.`causes_of_death`: OK
+[47, 19:02:23] PREPARE stmt FROM 'INSERT INTO `outdoor_pollution`.`causes_of_death` (`Country_name`,`Years`,`Outdoor_air_pollution`,`High_blood_pressure`,`Alcohol_use`,`Smoking`,`Drug_use`) VALUES(?,?,?,?,?,?,?)': Executing 
+[47, 19:02:23] PREPARE stmt FROM 'INSERT INTO `outdoor_pollution`.`causes_of_death` (`Country_name`,`Years`,`Outdoor_air_pollution`,`High_blood_pressure`,`Alcohol_use`,`Smoking`,`Drug_use`) VALUES(?,?,?,?,?,?,?)': OK
+[48, 19:02:24] DEALLOCATE PREPARE stmt: Executing 
+[48, 19:02:24] DEALLOCATE PREPARE stmt: OK
+[49, 19:02:32] UPDATE causes_of_death cd
+INNER JOIN countries c ON c.country_name = cd.Country_name
+SET cd.country_id = c.country_id: Running...
+[49, 19:02:32] UPDATE causes_of_death cd
+INNER JOIN countries c ON c.country_name = cd.Country_name
+SET cd.country_id = c.country_id: 228 row(s) affected
+Rows matched: 228  Changed: 228  Warnings: 0
+[50, 19:02:34] ALTER TABLE causes_of_death
+DROP COLUMN Country_name: Running...
+[50, 19:02:34] ALTER TABLE causes_of_death
+DROP COLUMN Country_name: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[1, 19:03:22] DROP DATABASE `outdoor_pollution`: Running...
+[1, 19:03:22] DROP DATABASE `outdoor_pollution`: 6 row(s) affected
+[2, 19:03:29] CREATE DATABASE outdoor_pollution: Running...
+[2, 19:03:29] CREATE DATABASE outdoor_pollution: 1 row(s) affected
+[3, 19:03:29] use outdoor_pollution: Running...
+[3, 19:03:29] use outdoor_pollution: 0 row(s) affected
+[4, 19:03:29] SET GLOBAL local_infile = 'ON': Running...
+[4, 19:03:29] SET GLOBAL local_infile = 'ON': 0 row(s) affected
+[5, 19:03:29] create table COUNTRIES(
+	country_id INT NOT NULL AUTO_INCREMENT,
+    country_name varchar(255),
+    country_code varchar(10),
+    PRIMARY KEY(country_id)
+): Running...
+[5, 19:03:29] create table COUNTRIES(
+	country_id INT NOT NULL AUTO_INCREMENT,
+    country_name varchar(255),
+    country_code varchar(10),
+    PRIMARY KEY(country_id)
+): 0 row(s) affected
+[6, 19:03:29] create table PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION(
+	country_id INT,
+    year INT NOT NULL,
+    percentage FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): Running...
+[6, 19:03:29] create table PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION(
+	country_id INT,
+    year INT NOT NULL,
+    percentage FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): 0 row(s) affected
+[7, 19:03:29] create table concentrations_of_air_pollution(
+	country_id INT,
+    year INT NOT NULL,
+    concentration FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): Running...
+[7, 19:03:29] create table concentrations_of_air_pollution(
+	country_id INT,
+    year INT NOT NULL,
+    concentration FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): 0 row(s) affected
+[8, 19:03:29] create table pollution_rates_age(
+	country_id int,
+	year int not null,
+	PRIMARY KEY(country_id, year),
+	FOREIGN KEY (country_id) REFERENCES countries(country_id),
+	death_under_5 float,
+	death_5_14 float,
+	death_15_49 float,
+	death_50_69 float,
+	death_over_70 float
+): Running...
+[8, 19:03:29] create table pollution_rates_age(
+	country_id int,
+	year int not null,
+	PRIMARY KEY(country_id, year),
+	FOREIGN KEY (country_id) REFERENCES countries(country_id),
+	death_under_5 float,
+	death_5_14 float,
+	death_15_49 float,
+	death_50_69 float,
+	death_over_70 float
+): 0 row(s) affected
+[9, 19:03:29] create table Death_rates_from_ozone_and_particulate_matter_polution(
+	country_id INT,
+    year INT NOT NULL,
+    MatterPollution FLOAT,
+    OzonePollution FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): Running...
+[9, 19:03:29] create table Death_rates_from_ozone_and_particulate_matter_polution(
+	country_id INT,
+    year INT NOT NULL,
+    MatterPollution FLOAT,
+    OzonePollution FLOAT,
+    PRIMARY KEY(country_id, year),
+    FOREIGN KEY (country_id) REFERENCES countries(country_id)
+    
+): 0 row(s) affected
+[10, 19:03:29] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/COUNTRIES.csv'
+   INTO TABLE countries
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (country_name, country_code): Running...
+[10, 19:03:29] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/COUNTRIES.csv'
+   INTO TABLE countries
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (country_name, country_code): 242 row(s) affected
+Records: 242  Deleted: 0  Skipped: 0  Warnings: 0
+[11, 19:03:29] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION.csv'
+   INTO TABLE PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, Percentage)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): Running...
+[11, 19:03:30] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION.csv'
+   INTO TABLE PERCENTAGE_OF_DEATHS_BY_AIR_POLLUTION
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, Percentage)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): 6840 row(s) affected
+Records: 6840  Deleted: 0  Skipped: 0  Warnings: 0
+[12, 19:03:30] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/outdoor_pollution_rates_by_age.csv'
+   INTO TABLE pollution_rates_age
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, death_under_5, death_5_14, death_15_49, death_50_69, death_over_70)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): Running...
+[12, 19:03:31] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/outdoor_pollution_rates_by_age.csv'
+   INTO TABLE pollution_rates_age
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, death_under_5, death_5_14, death_15_49, death_50_69, death_over_70)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): 6840 row(s) affected
+Records: 6840  Deleted: 0  Skipped: 0  Warnings: 0
+[13, 19:03:31] LOAD DATA LOCAL INFILE'C:/Users/Kemal/Desktop/Death_rates_from_ozone_and_particulate_matter_polution.csv'
+   INTO TABLE Death_rates_from_ozone_and_particulate_matter_polution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, MatterPollution, OzonePollution)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): Running...
+[13, 19:03:32] LOAD DATA LOCAL INFILE'C:/Users/Kemal/Desktop/Death_rates_from_ozone_and_particulate_matter_polution.csv'
+   INTO TABLE Death_rates_from_ozone_and_particulate_matter_polution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, MatterPollution, OzonePollution)
+   SET country_id = (SELECT countries.country_id FROM countries where @Entity = country_name): 6840 row(s) affected
+Records: 6840  Deleted: 0  Skipped: 0  Warnings: 0
+[14, 19:03:32] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/concentrations_of_air_pollution.csv'
+   INTO TABLE concentrations_of_air_pollution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, concentration)
+   SET country_id = ((SELECT countries.country_id FROM countries where @Entity = country_name)): Running...
+[14, 19:03:32] LOAD DATA LOCAL INFILE 'C:/Users/Kemal/Desktop/concentrations_of_air_pollution.csv'
+   INTO TABLE concentrations_of_air_pollution
+   FIELDS TERMINATED BY ','
+   IGNORE 1 ROWS
+   (@Entity, Year, concentration)
+   SET country_id = ((SELECT countries.country_id FROM countries where @Entity = country_name)): 2508 row(s) affected
+Records: 2508  Deleted: 0  Skipped: 0  Warnings: 0
+[15, 19:03:32] Create Table causes_of_death(
+	Country_name Varchar(100),
+	Years INT,
+	Outdoor_air_pollution INT,
+	High_blood_pressure INT,
+	Alcohol_use INT,
+	Smoking INT,
+	Drug_use INT
+): Running...
+[15, 19:03:32] Create Table causes_of_death(
+	Country_name Varchar(100),
+	Years INT,
+	Outdoor_air_pollution INT,
+	High_blood_pressure INT,
+	Alcohol_use INT,
+	Smoking INT,
+	Drug_use INT
+): 0 row(s) affected
+[16, 19:03:32] ALTER TABLE causes_of_death
+ADD COLUMN country_id INT: Running...
+[16, 19:03:32] ALTER TABLE causes_of_death
+ADD COLUMN country_id INT: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[17, 19:03:32] ALTER TABLE causes_of_death
+ADD CONSTRAINT fk_country_id
+FOREIGN KEY (country_id) REFERENCES countries(country_id): Running...
+[17, 19:03:32] ALTER TABLE causes_of_death
+ADD CONSTRAINT fk_country_id
+FOREIGN KEY (country_id) REFERENCES countries(country_id): 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0
+[18, 19:03:44] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[18, 19:03:44] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[19, 19:03:44] SHOW DATABASES: Executing 
+[19, 19:03:44] SHOW DATABASES: OK
+[20, 19:03:45] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': Executing 
+[20, 19:03:45] SHOW SESSION VARIABLES LIKE 'lower_case_table_names': OK
+[21, 19:03:45] SHOW COLUMNS FROM `outdoor_pollution`.`causes_of_death`: Executing 
+[21, 19:03:45] SHOW COLUMNS FROM `outdoor_pollution`.`causes_of_death`: OK
+[22, 19:03:47] PREPARE stmt FROM 'INSERT INTO `outdoor_pollution`.`causes_of_death` (`Country_name`,`Years`,`Outdoor_air_pollution`,`High_blood_pressure`,`Alcohol_use`,`Smoking`,`Drug_use`) VALUES(?,?,?,?,?,?,?)': Executing 
+[22, 19:03:47] PREPARE stmt FROM 'INSERT INTO `outdoor_pollution`.`causes_of_death` (`Country_name`,`Years`,`Outdoor_air_pollution`,`High_blood_pressure`,`Alcohol_use`,`Smoking`,`Drug_use`) VALUES(?,?,?,?,?,?,?)': OK
+[23, 19:03:47] DEALLOCATE PREPARE stmt: Executing 
+[23, 19:03:47] DEALLOCATE PREPARE stmt: OK
+[24, 19:03:52] UPDATE causes_of_death cd
+INNER JOIN countries c ON c.country_name = cd.Country_name
+SET cd.country_id = c.country_id: Running...
+[24, 19:03:53] UPDATE causes_of_death cd
+INNER JOIN countries c ON c.country_name = cd.Country_name
+SET cd.country_id = c.country_id: 228 row(s) affected
+Rows matched: 228  Changed: 228  Warnings: 0
+[25, 19:03:53] ALTER TABLE causes_of_death
+DROP COLUMN Country_name: Running...
+[25, 19:03:53] ALTER TABLE causes_of_death
+DROP COLUMN Country_name: 0 row(s) affected
+Records: 0  Duplicates: 0  Warnings: 0

@@ -1,0 +1,102 @@
+19:02:51 [ERR][      Workbench]: Console redirection failed.
+19:02:51 [INF][      Workbench]: Starting up Workbench
+19:02:51 [INF][      Workbench]: Current environment:
+	Command line: "C:\Program Files\MySQL\MySQL Workbench 8.0\MySQLWorkbench.exe" 
+	CurrentDirectory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	HasShutdownStarted: False
+	OSVersion: Microsoft Windows NT 6.2.9200.0
+	SystemDirectory: C:\WINDOWS\system32
+	TickCount: 693046
+	UserInteractive: True
+	Version: 4.0.30319.42000
+	WorkingSet: 42819584
+19:02:51 [INF][      Workbench]: Environment variables:
+	COMPUTERNAME = DESKTOP-0R6LFI2
+	USERPROFILE = C:\Users\Kemal
+	HOMEPATH = \Users\Kemal
+	LOCALAPPDATA = C:\Users\Kemal\AppData\Local
+	PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+	PROCESSOR_ARCHITECTURE = AMD64
+	CommonProgramW6432 = C:\Program Files\Common Files
+	CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+	ProgramFiles(x86) = C:\Program Files (x86)
+	PROCESSOR_LEVEL = 6
+	LOGONSERVER = \\DESKTOP-0R6LFI2
+	HOMEDRIVE = C:
+	SystemRoot = C:\WINDOWS
+	OS = Windows_NT
+	SESSIONNAME = Console
+	ALLUSERSPROFILE = C:\ProgramData
+	DriverData = C:\Windows\System32\Drivers\DriverData
+	APPDATA = C:\Users\Kemal\AppData\Roaming
+	Path = C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Kemal\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Kemal\AppData\Local\Programs\Python\Python310\;C:\Users\Kemal\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\CLion 2022.1.3\bin;;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;
+	USERNAME = Kemal
+	OneDrive = C:\Users\Kemal\OneDrive
+	CommonProgramFiles = C:\Program Files\Common Files
+	PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+	USERDOMAIN_ROAMINGPROFILE = DESKTOP-0R6LFI2
+	PyCharm Community Edition = C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;
+	PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 154 Stepping 3, GenuineIntel
+	OneDriveConsumer = C:\Users\Kemal\OneDrive
+	ZES_ENABLE_SYSMAN = 1
+	USERDOMAIN = DESKTOP-0R6LFI2
+	SystemDrive = C:
+	TEMP = C:\Users\Kemal\AppData\Local\Temp
+	VS110COMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\
+	ProgramFiles = C:\Program Files
+	NUMBER_OF_PROCESSORS = 20
+	ComSpec = C:\WINDOWS\system32\cmd.exe
+	TMP = C:\Users\Kemal\AppData\Local\Temp
+	ProgramData = C:\ProgramData
+	ProgramW6432 = C:\Program Files
+	CLion = C:\Program Files\JetBrains\CLion 2022.1.3\bin;
+	PROCESSOR_REVISION = 9a03
+	PUBLIC = C:\Users\Public
+	windir = C:\WINDOWS
+19:02:51 [INF][      Workbench]: Current version given by meta info is: 8.0.32
+19:02:51 [INF][      Workbench]: Setting PATH to: C:\WINDOWS\system32;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Kemal\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\CLion 2022.1.3\bin;;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.3\bin;
+19:02:51 [INF][ mforms managed]: Initializing mforms wrapper
+19:02:51 [INF][   WBContext UI]: Initializing workbench context UI with these values:
+	base dir: C:\Program Files\MySQL\MySQL Workbench 8.0
+	plugin path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	struct path: 
+	module path: C:\Program Files\MySQL\MySQL Workbench 8.0/modules
+	library path: C:\Program Files\MySQL\MySQL Workbench 8.0
+	user data dir: C:\Users\Kemal\AppData\Roaming\MySQL\Workbench
+	open at start: 
+	open type: 
+	run at startup: 
+	run type: 
+	Force SW rendering: No
+	Force OpenGL: No
+	quit when done: No
+19:02:51 [INF][      WBContext]: WbContext::init
+19:02:52 [INF][            WBA]: Looking for extension modules for WBA...
+19:02:52 [INF][            WBA]: 0 extension modules found
+19:02:52 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+19:02:52 [WRN][            grt]: C:\Users\Kemal\AppData\Roaming\MySQL\Workbench\connections.xml:27: link '{563C35BD-F1A3-4A85-AABC-117BACE3D132}' <object GrtObject> key=owner could not be resolved
+19:02:52 [WRN][            grt]: Duplicate plugin name wb.tools.cmdlineClient	There is more than one plugin with the name wb.tools.cmdlineClient (in PyWbUtils and PyWbUtils).
+19:02:54 [INF][      WBContext]: System info:
+ 	MySQL Workbench Community (GPL) for Windows version 8.0.32 CE build 2612062 (64 bit)
+	Configuration Directory: C:\Users\Kemal\AppData\Roaming\MySQL\Workbench
+	Data Directory: C:\Program Files\MySQL\MySQL Workbench 8.0
+	Cairo Version: 1.17.6
+	OS: Microsoft Windows 10 Pro
+	CPU: 20x 12th Gen Intel(R) Core(TM) i7-12700H, 31.8 GiB RAM
+	Active video adapter Intel(R) Iris(R) Xe Graphics
+	Installed video RAM: 1024 MB
+	Current video mode: 1920 x 1080 x 4294967296 renk
+	Used bit depth: 32
+	Driver version: 31.0.101.3959
+	Installed display drivers: <>,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_f71be885aacbc7c6\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_f71be885aacbc7c6\igd10iumd64.dll,C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_f71be885aacbc7c6\igd12umd64.dll
+	Current user language: Türkçe (Türkiye)
+
+19:02:54 [INF][      Workbench]: UI is up
+19:02:54 [INF][      Workbench]: Running the application
+19:02:55 [ERR][  GRTDispatcher]: exception in grt execute_task, continuing: Exception: Access denied for user 'root'@'localhost' (using password: NO)
+19:02:55 [ERR][  GRTDispatcher]: worker: task 'execute sql queries' has failed with error:.Access denied for user 'root'@'localhost' (using password: NO)
+19:02:57 [INF][SQL Editor Form]: Opened connection 'Local instance MySQL80' to MySQL Community Server - GPL version 8.0.32
+19:02:57 [INF][        WQE.net]: Launching SQL IDE
+19:02:58 [INF][        WQE.net]: SQL IDE UI is ready
+19:03:47 [INF][         Wizard]: Execute 'Prepare Import'
+19:03:47 [INF][         Wizard]: Starting thread for 'Import data file'
